@@ -1,0 +1,7 @@
+---
+- name: Deploy Django Application
+  hosts: ec2_instances
+  become: yes
+  roles:
+    - django-deployment
+

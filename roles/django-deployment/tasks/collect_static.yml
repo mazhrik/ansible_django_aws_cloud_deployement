@@ -1,0 +1,6 @@
+- name: Collect Static Files
+  command: python /opt/django-app/manage.py collectstatic --noinput
+  become: yes
+  args:
+    chdir: /opt/django-app/
+

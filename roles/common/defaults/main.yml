@@ -1,0 +1,5 @@
+common_packages:
+  - python
+  - python-pip
+common_user: mydjangoappuser
+

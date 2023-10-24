@@ -1,0 +1,13 @@
+---
+- name: Copy Nginx configuration
+  template:
+    src: django_app.conf.j2
+    dest: /etc/nginx/sites-available/{{ django_app_domain }}
+  become: yes
+- name: Enable Nginx site
+  file:
+    src: /etc/nginx/sites-available/{{ django_app_domain }}
+    dest: /etc/nginx/sites-enabled/
+    state: link
+  become: yes
+

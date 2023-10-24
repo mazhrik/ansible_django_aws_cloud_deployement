@@ -1,0 +1,7 @@
+- name: Start Gunicorn
+  systemd:
+    name: gunicorn
+    enabled: yes
+    state: started
+  become: yes
+

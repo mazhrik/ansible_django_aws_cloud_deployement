@@ -1,0 +1,14 @@
+- name: Update package cache
+  apt:
+    update_cache: yes
+  become: yes
+- name: Install essential packages
+  apt:
+    name: "{{ common_packages }}"
+  become: yes
+- name: Create system user
+  user:
+    name: "{{ common_user }}"
+    state: present
+  become: yes
+

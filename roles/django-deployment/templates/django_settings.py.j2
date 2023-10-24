@@ -1,0 +1,28 @@
+{% load static %}
+
+# Django settings for myproject project.
+
+# ...
+
+SECRET_KEY = '{{ django_secret_key }}'
+
+DEBUG = {{ django_debug_mode }}
+
+ALLOWED_HOSTS = ['{{ django_allowed_hosts }}']
+
+# ...
+
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': '{{ django_db_name }}',
+    }
+}
+
+# ...
+
+STATIC_URL = '{{ django_static_url }}'
+
+# ...
+
+
