@@ -1,0 +1,11 @@
+---
+all:
+  children:
+    ec2_instances:
+      hosts:
+{% for item in ec2_instances.instances %}
+        {{ item.public_ip }}:
+          ansible_host: {{ item.public_ip }}
+{% endfor %}
+
+

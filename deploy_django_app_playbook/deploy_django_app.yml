@@ -1,7 +1,24 @@
 ---
 - name: Deploy Django Application
-  hosts: ec2_instances
+  hosts: ec2_instances # Specify the hosts where you want to deploy
   become: yes
-  roles:
-    - django-deployment
+
+  tasks:
+    - name: Include Common System Configuration Role
+      include_role:
+        name: /home/ubuntu/my-ansible-project/roles/common
+      tags:
+        - common
+
+    - name: Include Django Deployment Role
+      include_role:
+        name: /home/ubuntu/my-ansible-project/roles/django-deployment
+      tags:
+        - django-deployment
+
+    - name: Include Web Server Configuration Role
+      include_role:
+        name: /home/ubuntu/my-ansible-project/roles/webserver
+      tags:
+        - webserver
 

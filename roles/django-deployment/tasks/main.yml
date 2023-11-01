@@ -1,0 +1,18 @@
+# roles/your_role/tasks/main.yml
+
+- name: Clone GitHub Repository
+  include_tasks: clone_repo.yml
+
+- name: Collect Static Files
+  include_tasks: collect_static.yml
+
+- name: Configure Django Settings
+  include_tasks: configure_settings.yml
+
+- name: Run Database Migrations
+  include_tasks: migrate_database.yml
+
+- name: Start Gunicorn
+  include_tasks: start_gunicorn.yml
+
+
