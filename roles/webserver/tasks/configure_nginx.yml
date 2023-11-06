@@ -1,13 +1,15 @@
 ---
-- name: Copy Nginx configuration
+- name: Copy Nginx configuration for Django app
   template:
     src: django_app.conf.j2
-    dest: /etc/nginx/sites-available/{{ django_app_domain }}
+    dest: /etc/nginx/sites-available/default
   become: yes
-- name: Enable Nginx site
+  when: not (ansible_check_mode | bool)
+
+- name: Enable Nginx site for Django app
   file:
-    src: /etc/nginx/sites-available/{{ django_app_domain }}
-    dest: /etc/nginx/sites-enabled/
+    src: /etc/nginx/sites-available/default
+    dest: /etc/nginx/sites-enabled/default
     state: link
   become: yes
-
+  when: not (ansible_check_mode | bool)

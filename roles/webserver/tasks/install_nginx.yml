@@ -5,3 +5,10 @@
     state: present
   become: yes
 
+- name: Ensure /etc/nginx/sites-enabled/ is empty
+  file:
+    path: /etc/nginx/sites-enabled/{{ item }}
+    state: absent
+  become: yes
+  with_fileglob:
+    - /etc/nginx/sites-enabled/*

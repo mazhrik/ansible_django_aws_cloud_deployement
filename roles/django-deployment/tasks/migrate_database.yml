@@ -1,5 +1,5 @@
 - name: Run Database Migrations
-  command: python /opt/django-app/manage.py migrate
+  command: /usr/bin/python3 /opt/django-app/manage.py migrate
   become: yes
   args:
     chdir: /opt/django-app/

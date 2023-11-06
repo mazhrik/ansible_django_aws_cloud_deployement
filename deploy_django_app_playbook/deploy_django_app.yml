@@ -1,6 +1,7 @@
 ---
 - name: Deploy Django Application
   hosts: ec2_instances # Specify the hosts where you want to deploy
+  gather_facts: yes
   become: yes
 
   tasks:
