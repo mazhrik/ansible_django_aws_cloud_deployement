@@ -1,7 +1,7 @@
 ---
 - name: Clone GitHub Repository
   git:
-    repo: https://github.com/mazhrik/ansible_testing_app.git
+    repo: https://github.com/mazhrik/card_project.git
     dest: /opt/django-app
     version: master  # Replace with your preferred branch or tag
     force : yes
