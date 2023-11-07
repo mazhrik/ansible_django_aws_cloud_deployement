@@ -13,5 +13,6 @@ server {
         include proxy_params;
         proxy_pass http://unix:/opt/django-app/gunicorn.sock;  # Use the gunicorn socket
     }
+
 }
 
