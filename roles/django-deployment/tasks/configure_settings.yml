@@ -1,6 +1,6 @@
 - name: Copy Django Settings
   template:
     src: django_settings.py.j2
-    dest: /opt/django-app/myproject/settings.py
+    dest: /opt/django-app/bridgebase/settings.py
   become: yes
 
