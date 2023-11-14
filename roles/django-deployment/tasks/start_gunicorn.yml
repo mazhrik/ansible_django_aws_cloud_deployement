@@ -30,8 +30,8 @@
       [Service]
       WorkingDirectory=/opt/django-app
       # ExecStartPre=/bin/sleep 5
-      # ExecStart=/usr/bin/gunicorn --workers 3 --bind unix:/opt/django-app/gunicorn.sock bridgebase.wsgi:application
-      ExecStart=/usr/bin/gunicorn --workers 3 --bind 0.0.0.0:8000 bridgebase.wsgi:application
+      ExecStart=/usr/bin/gunicorn --workers 3 --bind unix:/opt/django-app/gunicorn.sock bridgebase.wsgi:application
+      # ExecStart=/usr/bin/gunicorn --workers 3 --bind 0.0.0.0:8000 bridgebase.wsgi:application
       [Install]
       WantedBy=multi-user.target
   become: yes
@@ -40,12 +40,12 @@
   command: systemctl daemon-reload
   become: yes
 
-# - name: Enable and Start Gunicorn Socket
-#   systemd:
-#     name: gunicorn.socket
-#     enabled: yes
-#     state: started
-#   become: yes
+- name: Enable and Start Gunicorn Socket
+  systemd:
+    name: gunicorn.socket
+    enabled: yes
+    state: started
+  become: yes
 
 - name: Start Gunicorn Service
   systemd:
