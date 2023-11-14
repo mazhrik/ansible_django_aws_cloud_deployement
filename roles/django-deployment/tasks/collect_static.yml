@@ -1,6 +1,11 @@
-- name: Collect Static Files
-  command: /usr/bin/python3 /opt/django-app/manage.py collectstatic --noinput
-  become: yes
-  args:
-    chdir: /opt/django-app/
+# - name: Collect Static Files
+#   command: /usr/bin/python3 /opt/django-app/manage.py collectstatic --noinput
+#   become: yes
+#   args:
+#     chdir: /opt/django-app/
 
+- name: Collect Static Files
+  django_manage:
+    command: collectstatic
+    app_path: /opt/django-app/
+  become: yes
