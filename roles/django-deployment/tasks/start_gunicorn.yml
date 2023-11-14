@@ -31,7 +31,7 @@
       WorkingDirectory=/opt/django-app
       # ExecStartPre=/bin/sleep 5
       # ExecStart=/usr/bin/gunicorn --workers 3 --bind unix:/opt/django-app/gunicorn.sock bridgebase.wsgi:application
-      ExecStart=/usr/bin/gunicorn --workers 3 --bind 0.0.0.0:8000 bridgebase.wsgi:application
+      ExecStart=/usr/bin/gunicorn --workers 3 --bind {{ ansible_host }}:8000 bridgebase.wsgi:application
       [Install]
       WantedBy=multi-user.target
   become: yes
