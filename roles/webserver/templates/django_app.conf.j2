@@ -11,7 +11,7 @@ server {
 
     location / {
         include proxy_params;
-        proxy_pass http://{{ ansible_host }}:8000
+        proxy_pass http://{{ ansible_host }}
 {#         proxy_pass http://unix:/opt/django-app/gunicorn.sock;  # Use the gunicorn socket #}
     }
 
