@@ -4,19 +4,19 @@
     state: present
   become: yes
 
-- name: Create Gunicorn Socket
-  copy:
-    dest: /etc/systemd/system/gunicorn.socket
-    content: |
-      [Unit]
-      Description=Gunicorn Socket
+# - name: Create Gunicorn Socket
+#   copy:
+#     dest: /etc/systemd/system/gunicorn.socket
+#     content: |
+#       [Unit]
+#       Description=Gunicorn Socket
 
-      [Socket]
-      ListenStream=/opt/django-app/gunicorn.sock
+#       [Socket]
+#       ListenStream=/opt/django-app/gunicorn.sock
 
-      [Install]
-      WantedBy=sockets.target
-  become: yes
+#       [Install]
+#       WantedBy=sockets.target
+#   become: yes
 
 - name: Create Gunicorn Service
   copy:
