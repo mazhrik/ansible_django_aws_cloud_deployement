@@ -5,6 +5,6 @@
   systemd:
     name: nginx
     enabled: yes
-    state: started
+    state: reloaded
   become: yes
 
