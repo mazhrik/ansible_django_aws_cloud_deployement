@@ -24,7 +24,7 @@
     content: |
       [Unit]
       Description=Gunicorn Daemon for Your Django Application
-      Requires=gunicorn.socket
+      # Requires=gunicorn.socket
       After=network.target
 
       [Service]
